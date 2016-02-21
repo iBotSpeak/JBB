@@ -10,7 +10,7 @@ JBBCode code = new JBBCode();
 code.getRoot().addText("Here "); // raw text
 code.getRoot().add(new BBBold("is")); // bold
 code.getRoot().add(new BBItalic(" an ")); // italic
-code.getRoot().add(new BBTag("s", "example")); // custom
+code.getRoot().add(new BBTag("s", null, "example")); // custom
 code.getRoot().addText(" of ");
 
 BBBold brand = new BBBold(); // new tag object
