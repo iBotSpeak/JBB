@@ -38,7 +38,7 @@ public class JBBCode implements Serializable {
         for (int i = 0; i < string.length(); i++) {
             char escape = string.charAt(i);
 
-            if (escape == '[' || escape == ']') {
+            if (escape == '\\' || escape == '[') {
                 builder.append("\\");
             }
 

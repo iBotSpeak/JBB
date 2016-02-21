@@ -18,18 +18,20 @@ public class BBTag extends BBObject implements Iterable<BBObject> {
     }
 
     public BBTag(String name, String attribute) {
-        this.name = name;
+        this.name = JBBCode.escapeString(name);
         this.attribute = attribute;
     }
 
-    public void add(BBObject... objects) {
-        for (Object object : objects) {
+    public BBTag add(BBObject... objects) {
+        for (BBObject object : objects) {
             this.values.add(object);
         }
+        return this;
     }
 
-    public void addText(String text) {
+    public BBTag addText(String text) {
         this.values.add(new BBText(text));
+        return this;
     }
 
     @Override
@@ -65,12 +67,14 @@ public class BBTag extends BBObject implements Iterable<BBObject> {
         return this.values.remove(object);
     }
 
-    public void setAttribute(String attribute) {
+    public BBTag setAttribute(String attribute) {
         this.attribute = attribute;
+        return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public BBTag setName(String name) {
+        this.name = JBBCode.escapeString(name);
+        return this;
     }
 
     @Override
