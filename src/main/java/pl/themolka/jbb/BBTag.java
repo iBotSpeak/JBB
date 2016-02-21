@@ -18,8 +18,16 @@ public class BBTag extends BBObject implements Iterable<BBObject> {
     }
 
     public BBTag(String name, String attribute) {
+        this(name, attribute, null);
+    }
+
+    public BBTag(String name, String attribute, String textValue) {
         this.name = JBBCode.escapeString(name);
         this.attribute = attribute;
+
+        if (textValue != null) {
+            this.addText(textValue);
+        }
     }
 
     public BBTag add(BBObject... objects) {
